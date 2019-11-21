@@ -2,12 +2,17 @@
 // Gives library functions for console printing. Similar to Using System in C#
 #include <iostream>
 
+void PrintIntroduction()
+{
+    std::cout << "You are a secret agent breaking into a secure server room...\n";
+    std::cout << "Enter the correct code to continue...\n\n";
+}
+
 void PlayGame()
 {
     // Standard Namespace, Cout function to post string to console.
     // Print Initial Text
-    std::cout << "You are a secret agent breaking into a secure server room...\n";
-    std::cout << "Enter the correct code to continue...\n\n";
+    PrintIntroduction();
 
     const int CodeA = 4;
     const int CodeB = 3;
