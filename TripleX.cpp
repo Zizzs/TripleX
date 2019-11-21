@@ -1,6 +1,7 @@
 // Quick C++ Course for Unreal Engine
 // Gives library functions for console printing. Similar to Using System in C#
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
@@ -14,9 +15,9 @@ bool PlayGame(int Difficulty)
     // Print Initial Text
     PrintIntroduction(Difficulty);
 
-    const int CodeA = rand() % Difficulty + 1;
-    const int CodeB = rand() % Difficulty + 1;
-    const int CodeC = rand() % Difficulty + 1;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -49,6 +50,8 @@ bool PlayGame(int Difficulty)
 
 int main()
 {
+    srand(time(NULL)); // Creates a new random seed for rand()
+
     int LevelDifficulty = 1;
     const int MaxLevelDifficulty = 5;
 
