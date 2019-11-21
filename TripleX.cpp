@@ -2,7 +2,7 @@
 // Gives library functions for console printing. Similar to Using System in C#
 #include <iostream>
 
-int main()
+void PlayGame()
 {
     // Standard Namespace, Cout function to post string to console.
     // Print Initial Text
@@ -19,7 +19,7 @@ int main()
     // Print CodeSum and CodeProduct to terminal "std::cout << Output" "std::cin >> Input"
     std::cout << "+ There are 3 numbers in the code";
     std::cout << "\n+ The codes add-up to: " << CodeSum;
-    std::cout << "\n+ The codes multiply to give: " << CodeProduct;
+    std::cout << "\n+ The codes multiply to give: " << CodeProduct << std::endl;
 
     // Get user input as three numbers (2 3 4)
     int GuessA, GuessB, GuessC;
@@ -38,6 +38,10 @@ int main()
     {
         std::cout << "\nYou tripped an alarm and got captured.";
     }
+}
 
+int main()
+{
+    PlayGame();
     return 0;
 }
