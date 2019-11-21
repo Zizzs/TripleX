@@ -2,21 +2,21 @@
 // Gives library functions for console printing. Similar to Using System in C#
 #include <iostream>
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
-    std::cout << "You are a secret agent breaking into a secure server room...\n";
+    std::cout << "\n\nYou are a secret agent breaking into a level " << Difficulty << " secure server room...\n";
     std::cout << "Enter the correct code to continue...\n\n";
 }
 
-void PlayGame()
+bool PlayGame(int Difficulty)
 {
     // Standard Namespace, Cout function to post string to console.
     // Print Initial Text
-    PrintIntroduction();
+    PrintIntroduction(Difficulty);
 
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % Difficulty + 1;
+    const int CodeB = rand() % Difficulty + 1;
+    const int CodeC = rand() % Difficulty + 1;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -38,15 +38,33 @@ void PlayGame()
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
         std::cout << "\nYou broke into the server room!";
+        return true;
     }
     else
     {
         std::cout << "\nYou tripped an alarm and got captured.";
+        return false;
     }
 }
 
 int main()
 {
-    PlayGame();
+    int LevelDifficulty = 1;
+    const int MaxLevelDifficulty = 5;
+
+    while (LevelDifficulty <= MaxLevelDifficulty) // Loop until all levels are completed
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear();  // Clears errors
+        std::cin.ignore(); // Discards buffer
+
+        if (bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
+    }
+
+    std::cout << "\nYou have broken into all server rooms. You win!";
+
     return 0;
 }
