@@ -15,13 +15,22 @@ int main()
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
 
-    // Print CodeSum and CodeProduct to terminal
+    // Print CodeSum and CodeProduct to terminal "std::cout << Output" "std::cin >> Input"
     std::cout << std::endl;
     std::cout << "+ There are 3 numbers in the code" << std::endl;
     std::cout << "+ The codes add-up to: " << CodeSum << std::endl;
     std::cout << "+ The codes multiply to give: " << CodeProduct << std::endl;
 
-    int PlayerGuess;
+    int GuessA, GuessB, GuessC;
+    int GuessSum;
+    int GuessProduct;
+
+    std::cin >> GuessA;
+    std::cin >> GuessB;
+    std::cin >> GuessC;
+
+    GuessSum = GuessA + GuessB + GuessC;
+    GuessProduct = GuessA * GuessB * GuessC;
 
     return 0;
 }
