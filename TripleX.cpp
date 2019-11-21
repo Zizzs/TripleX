@@ -1,3 +1,4 @@
+// Quick C++ Course for Unreal Engine
 // Gives library functions for console printing. Similar to Using System in C#
 #include <iostream>
 
@@ -25,12 +26,24 @@ int main()
     int GuessSum;
     int GuessProduct;
 
+    // Get user input as three numbers (2 3 4)
     std::cin >> GuessA;
     std::cin >> GuessB;
     std::cin >> GuessC;
 
+    // Get Sum and Product
     GuessSum = GuessA + GuessB + GuessC;
     GuessProduct = GuessA * GuessB * GuessC;
+
+    // Compare GuessSum/Product with the CodeSum/Product to check win condition
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "You broke into the server room!";
+    }
+    else
+    {
+        std::cout << "You tripped an alarm and got captured.";
+    }
 
     return 0;
 }
